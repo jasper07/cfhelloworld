@@ -11,14 +11,6 @@ stages:
     npmExecuteScripts: false
     karmaExecuteTests: false
 
-  Release:
-    cloudFoundryDeploy: true
-    tmsUpload: true
-    cfApiEndpoint: "https://api.cf.ap10.hana.ondemand.com"
-    cfOrg: "secondphase"
-    cfSpace: "dev"
-    cfAppName: "helloworld"
-
 steps:
   artifactPrepareVersion:
     versioningType: "cloud_noTag"
@@ -27,7 +19,11 @@ steps:
     failOnError: true
 
   cloudFoundryDeploy:
-    mtaDeployParameters: "-f --version-rule ALL"
+    cloudFoundry:
+      apiEndpoint: "https://api.cf.ap10.hana.ondemand.com"
+      org: "secondphase"
+      space: "dev"
+    mtaDeployParameters: '-f --version-rule ALL'
 
   tmsUpload:
     nodeName: "QA_MTA"
