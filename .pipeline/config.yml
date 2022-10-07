@@ -1,13 +1,13 @@
 ---
 general:
   buildTool: "mta"
+  deployTool: "mtaDeployPlugin"
 
 # Steps configuration
 steps:
   mtaBuild:
     buildTarget: "CF"
   cloudFoundryDeploy:
-    deployTool: "mtaDeployPlugin"
     apiEndpoint: "https://api.cf.ap10.hana.ondemand.com"
     org: "secondphase"
     space: "dev"
