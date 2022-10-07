@@ -19,10 +19,9 @@ steps:
     failOnError: true
 
   cloudFoundryDeploy:
-    cloudFoundry:
-      apiEndpoint: "https://api.cf.ap10.hana.ondemand.com"
-      org: "secondphase"
-      space: "dev"
+    apiEndpoint: "https://api.cf.ap10.hana.ondemand.com"
+    org: "secondphase"
+    space: "dev"
     mtaDeployParameters: '-f --version-rule ALL'
 
   tmsUpload:
