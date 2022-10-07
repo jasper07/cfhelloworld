@@ -2,28 +2,14 @@
 general:
   buildTool: "mta"
 
-stages:
-  Build:
-    mavenExecuteStaticCodeChecks: false
-    npmExecuteLint: true
-
-  Additional Unit Tests:
-    npmExecuteScripts: false
-    karmaExecuteTests: false
-
 steps:
-  artifactPrepareVersion:
-    versioningType: "cloud_noTag"
-
-  npmExecuteLint:
-    failOnError: true
-
+  mtaBuild:
+    platform: 'CF'
   cloudFoundryDeploy:
     apiEndpoint: "https://api.cf.ap10.hana.ondemand.com"
     org: "secondphase"
     space: "dev"
-    mtaDeployParameters: '-f --version-rule ALL'
 
-  tmsUpload:
-    nodeName: "QA_MTA"
-    credentialsId: "tms-sk"
+  # tmsUpload:
+  #   nodeName: "QA_MTA"
+  #   credentialsId: "tms-sk"
