@@ -36,6 +36,7 @@ This is an example of an HTML5 app that is accessed by a managed application rou
 
 
 ## Check the Result
+test
 
 ### List the Deployed HTML5 Apps
 ```
