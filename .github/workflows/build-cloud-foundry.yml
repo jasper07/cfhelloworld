@@ -16,8 +16,8 @@ jobs:
           cache: 'npm'
       - name: Check node version
         run: node --version
-      # - name: Install MTA Build Tool
-      #   run: npm install -g mbt
+      - name: Install MTA Build Tool
+        run: npm install -g mbt
       - name: Install Packages
         run: npm install ci
       - name: mtaBuild
