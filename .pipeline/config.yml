@@ -26,6 +26,8 @@ steps:
     mtaBuildTool: "cloudMbt"
   
   cloudFoundryDeploy:
+    deployTool: 'mtaDeployPlugin'
+    deployType: 'standard
     apiEndpoint: "https://api.cf.ap10.hana.ondemand.com"
     org: "secondphase"
     space: "dev"
