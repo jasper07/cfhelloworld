@@ -25,7 +25,7 @@ jobs:
         with:
           command: mtaBuild
       - name: cloudFoundryDeploy
-        uses: SAP/project-piper-action@master
+        uses: SAP/project-piper-action@install-cf-cli
         with:
           command: cloudFoundryDeploy
           piper-version: master
