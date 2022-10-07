@@ -7,8 +7,12 @@ general:
 steps:
   mtaBuild:
     buildTarget: "CF"
+    mtarName: helloworld.mtar
   cloudFoundryDeploy:
+    buildTool: "mta"
+    deployTool: "mtaDeployPlugin"
     apiEndpoint: "https://api.cf.ap10.hana.ondemand.com"
+    mtaPath: ./helloworld.mtar
     org: "secondphase"
     space: "dev"
 

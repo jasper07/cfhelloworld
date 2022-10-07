@@ -24,11 +24,30 @@ jobs:
         uses: SAP/project-piper-action@master
         with:
           command: mtaBuild
-      - name: cloudFoundryDeploy
-        uses: SAP/project-piper-action@install-cf-cli
+      - name: Upload archive file
+        uses: actions/upload-artifact@v2
         with:
-          command: cloudFoundryDeploy
-          piper-version: master
+           name: mta
+           path: helloworld.mtar
+
+
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    environment: 
+      name: dev
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: mta
+      - name: Display structure of downloaded files
+        run: ls -R
+      - name: cloudFoundryDeploy
+        uses: SAP/project-piper-action@master
+        with:
+            command: cloudFoundryDeploy
         env:
           PIPER_username: ${{ secrets.USERNAME }}
           PIPER_password: ${{ secrets.PASSWORD }}
